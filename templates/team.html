@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}" />
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=yes" />
+  <meta charset="UTF-8" />
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjx.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
+  <title>TroTro Live</title>
+  <style>
+    .navbar-brand {
+      margin-right: 29%;
+    }
+
+    .navbar-light .navbar-nav .nav-link {
+    color: black;
+    background-color: white;
+}
+
+    .navbar-light .navbar-nav .nav-link:hover{
+      border-radius: 30%;
+    }
+    .nav-item {
+      padding-right: 5%;
+    }
+
+    .nav-item:hover {
+      background-color: white;
+      border-radius: 5%;
+    }
+
+    .navbar {
+      background-color: rgb(238, 234, 234);
+      height: 60px;
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      background: rgb(238, 234, 234);
+      z-index: 2;
+    }
+
+    .logo {
+      text-decoration: none;
+      font-weight: bold;
+      color: black;
+      font-size: 1.2em;
+    }
+
+    .logo span {
+      color: rgb(212, 32, 188);
+    }
+
+    .description {
+      margin: auto;
+    }
+
+    .father-div {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      box-sizing: border-box;
+      padding-top: 40px;
+      background: white;
+      z-index: 1;
+    }
+  </style>
+</head>
+
+<body style="text-align: center">
+  <header>
+    <!-- <nav class="navbar navbar-expand-lg navbar-light">
+        <div class="container-fluid">
+            <a class="navbar-brand logo" href="#">TroTro<span>Live</span></a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link" aria-current="page" href="/">Home</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            About Us
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <a class="dropdown-item" href="/company">Company Info</a>
+                            <a class="dropdown-item" href="/team">Meet the team</a>
+                            <a class="dropdown-item" href="#">Contact Info</a>
+                        </div>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            TroTro Diaries
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <a class="dropdown-item" href="/member">Member Page</a>
+                            <a class="dropdown-item" href="#">General Travel</a>
+                            <a class="dropdown-item" href="#">Health Concerns</a>
+                            <a class="dropdown-item" href="#">Safety Measures</a>
+                            <a class="dropdown-item" href="#">FAQs</a>
+                        </div>
+                    </li>
+                </ul>
+                </li>
+
+                </ul>
+
+            </div>
+        </div>
+    </nav> -->
+    <nav class="navbar fixed-top navbar-expand-lg navbar-light">
+      <div class="container-fluid">
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <a class="navbar-brand logo" href="#">TroTro<span>Live</span></a>
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+              <a class="nav-link" aria-current="page" href="/">Home</a>
+            </li>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
+                aria-haspopup="true" aria-expanded="false">
+                About Us
+              </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <a class="dropdown-item" href="/company">Company Info</a>
+                <a class="dropdown-item" href="/team">Meet the team</a>
+                <a class="dropdown-item" href="/contact">Contact Info</a>
+              </div>
+            </li>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
+                aria-haspopup="true" aria-expanded="false">
+                TroTro Diaries
+              </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <a class="dropdown-item" href="/member">Member Page</a>
+                <a class="dropdown-item" href="#">General Travel</a>
+                <a class="dropdown-item" href="#">Health Concerns</a>
+                <a class="dropdown-item" href="#">Safety Measures</a>
+                <a class="dropdown-item" href="#">FAQs</a>
+              </div>
+            </li>
+          </ul>
+          </li>
+
+          </ul>
+
+        </div>
+      </div>
+    </nav>
+
+<div class="toptitle">
+    </div>
+    <br />
+    <!-- My Code -->
+    <div class="father-div">
+      <div class="box">
+        <span style="--i: 1"><img class='image' src="../static/image/1.png" alt="" /></span>
+        <span style="--i: 2"><img class='image' src="../static/image/2.png" alt="" /></span>
+        <span style="--i: 3"><img class='image' src="../static/image/3.png" alt="" /></span>
+        <span style="--i: 6"><img class='image' src="../static/image/6.png" alt="" /></span>
+        <span style="--i: 7"><img class='image' src="../static/image/7.png" alt="" /></span>
+        <span style="--i: 8"><img class='image' src="../static/image/8.png" alt="" /></span>
+        <span style="--i: 9"><img class='image' src="../static/image/9.png" alt="" /></span>
+        <span style="--i: 10"><img src="../static/image/10.png" alt="" /></span>
+        <span style="--i: 11"><img src="../static/image/11.png" alt="" /></span>
+        <span style="--i: 11"><img src="../static/image/12.jpg" alt="" /></span>
+        <span style="--i: 4"><img class='image' src="../static/image/4.png" alt="" /></span>
+        <span style="--i: 5"><img class='image' src="../static/image/5.png" alt="" /></span>
+      </div>
+    </div>
+    <!-- End of my code -->
+
+    <div class="mainbanner">
+      <img src="{{ url_for('static', filename='images/logo.jpg') }}" class="banner" />
+    </div>
+  </header>
+
+  <div class="abouttext">
+    <img class="picture" src="{{ url_for('static', filename='images/worae.jpg') }}" />
+    <h2>Akwasi Adjei Worae</h2>
+    <h4>ENTREPRENEUR</h4>
+    <p class="description">
+      I joined this firm because I believe in technological transformation and
+      thus with this web/app, later in the years our country will be a better
+      place because this application will be everyone's friend.
+    </p>
+    <hr />
+    <br />
+    <img class="picture" src="{{ url_for('static', filename='images/bilson.jpg') }}" />
+    <h2>Bilson Donkor</h2>
+    <h4>ENTREPRENEUR AND SALES CONSULTANT</h4>
+    <p class="description">
+      TroTroLive is the future of Ghana's logistics system because of it's
+      convenience and simplicity
+    </p>
+    <hr />
+    <br />
+    <img class="picture" src="{{ url_for('static', filename='images/godfred.jpg') }}" />
+    <h2>Godfred Addai Amoako</h2>
+    <h4>DATA SCIENTIST</h4>
+    <p class="description">
+      My daily routine cannot exclude my TroTro trips; sometimes the minivans
+      conductors and passengers do not get along because of cheating so we
+      collected big data and transforming the original TroTro digitally and
+      physically.
+    </p>
+    <hr />
+    <br />
+    <img class="picture" src="{{ url_for('static', filename='image/12.jpg') }}" alt="" />
+    <h2>Tejas Naik</h2>
+
+    <h4>PYTHON/BACKEND DEVELOPER</h4>
+    <p class="description">
+      I am Tejas and from India. I am really passionated about
+      programming and that's what got me to this project this is my first
+      project, will try my best for this app.
+    </p>
+    <hr>
+    <img class="picture" src="{{ url_for('static', filename='images/woode.jpg') }}" />
+    <h2>Emmanuel Woode</h2>
+    <h4>MECHANICAL ENGINEERING STUDENT; KNUST</h4>
+    <p class="description">
+      The reason why I participated in the creation of this app was to help
+      gather information about public transits and it's required fares. I am
+      absolutely sure that this app will help stranded visitors to locate
+      transit stations and know their transportation fees.
+    </p>
+    <hr />
+    <br />
+    <img class="picture" src="{{ url_for('static', filename='images/adamu.jpg') }}" />
+    <h2>Ibrahim Adamu</h2>
+    <h4>MODEL AND NURSE</h4>
+    <p class="description">
+      I have no skills in technology but I am a pivot to all the systems. I
+      had to go to the TroTro stations themselves and get the raw data. I am
+      not yet done, I know there is a long way to the future of TroTro.Live.
+    </p>
+    <hr />
+    <br />
+    <img class="picture" src="{{ url_for('static', filename='images/gideon.jpg') }}" />
+    <h2>Gideon Botwe</h2>
+    <h4>GRAPHIC DESIGNER</h4>
+    <p class="description">
+      Charlie, every penny counts. I do not want any wahala with any TroTro
+      mate if there is an increment in fare prices or I travel to a place
+      where I do not know the fare. Brainstorming with the team,I created this
+      marvellous logo.
+    </p>
+    <hr />
+    <br />
+    <img class="picture" src="{{ url_for('static', filename='images/ekow.jpg') }}" />
+    <h2>Andy Ekow Mensah</h2>
+    <h4>PYTHON DEVELOPER</h4>
+    <p class="description">
+      I just see every world problem as a programming challenge, which I would
+      like to help solve. Finding the right TroTro fare is one of these
+      problems and can be solved by writing just the right code.
+    </p>
+    <hr />
+    <br />
+    <img class="picture" src="{{ url_for('static', filename='images/kwame.jpg') }}" />
+    <h2>Kwame Rationale</h2>
+    <h4>VOLUNTEER</h4>
+    <p class="description">
+      Everyone uses TroTro, and as a regular user my ideas matters to the
+      team.
+    </p>
+    <hr />
+    <br />
+    <img class="picture" src="{{ url_for('static', filename='images/adonis.jpg') }}" />
+    <h2>Adonis Simon</h2>
+    <h4>PROMOTER</h4>
+    <p class="description">
+      I believe this app is going to make an outstanding change for the local
+      transportation business and for the people at large. It is going to make
+      us well budgeted and I believe is the only locally made app created to
+      provide local transportation information
+    </p>
+    <hr />
+    <br />
+    <img class="picture" src="{{ url_for('static', filename='images/samantwi.jpg') }}" />
+    <h2>Samuel Antwi Oteng</h2>
+    <h4>FASHION DESIGNER</h4>
+    <p class="description">
+      You do not need to climb a mountain to see the star
+    </p>
+    <hr />
+    <br />
+    <img class="picture" src="{{ url_for('static', filename='images/lizzie.jpg') }}" />
+    <h2>Nartey Elizabeth-Lynda</h2>
+    <h4>FRONT-END DEVELOPER/STUDENT</h4>
+    <p class="description">
+      Being a part of this team has been an amazing opportunity to learn and
+      unearth basic user interface designs. TroTro.Live is a smart way of
+      pushing the country a pace further in Science and technology.
+    </p>
+    <br /><br />
+  </div>
+
+  <footer>
+    <p>
+      Copyright &copy; 2020 TroTro Live Ltd .
+      <a href="company">Company Information</a>
+    </p>
+    <p2><a href="privacy">Privacy Terms</a></p2>
+  </footer>
+</body>
+
+</html>
